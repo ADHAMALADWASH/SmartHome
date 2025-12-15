@@ -1,2 +1,11 @@
-# SmartHome
- The project monitors soil moisture, temperature, humidity, light, fire, and distance sensors, with automated irrigation and lighting control. Machine learning models (Random Forest and Isolation Forest) are used to predict upcoming soil dryness and detect system faults early.
+This project implements a Smart Greenhouse Monitoring and Control System that combines IoT, embedded systems, and machine learning to provide real-time automation and predictive analytics. The system is designed to monitor environmental conditions, automate irrigation and lighting, and predict upcoming soil dryness and system faults before they occur.
+
+The hardware layer is built around an Arduino Uno connected to multiple sensors, including a soil moisture sensor, LDR, DHT11 temperature and humidity sensor, ultrasonic distance sensor, and a flame sensor. Actuators such as relay modules, servo motors, buzzers, and an I2C LCD display are used to respond to environmental changes and provide local feedback.
+
+At the embedded level, the Arduino firmware continuously reads sensor values and applies rule-based control logic. Soil irrigation is managed using a threshold-based approach with hysteresis and timing constraints to prevent relay oscillation. Lighting is automatically controlled based on ambient light intensity, while the ultrasonic sensor detects nearby objects and triggers servo movement and audible alerts. Fire detection is handled in real time using the flame sensor and buzzer.
+
+All sensor readings and system states are streamed via serial communication to a Python-based analytics pipeline. This data is stored and processed to create structured datasets for analysis and modeling. By leveraging historical data, the system moves beyond reactive control toward predictive intelligence.
+
+Two machine learning models are integrated to enhance system reliability and autonomy. A Random Forest model is used for soil dryness prediction, allowing the system to anticipate irrigation needs before critical dryness levels are reached. In parallel, an Isolation Forest model is employed for unsupervised anomaly and fault detection, enabling the identification of abnormal sensor readings, faulty actuators, or unexpected system behavior without requiring labeled fault data.
+
+The integration of IoT and machine learning enables predictive maintenance, reduced water waste, early fault detection, and improved operational stability. This project demonstrates a practical application of smart agriculture principles and serves as a scalable foundation for advanced greenhouse automation systems.
